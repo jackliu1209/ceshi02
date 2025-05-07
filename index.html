@@ -502,7 +502,7 @@
             display: block;
         }
 
-        /* 图片模态框样式 - 修改为参考样式 */
+        /* 图片模态框样式 - 修改后的样式 */
         .modal {
             display: none;
             position: fixed;
@@ -533,17 +533,17 @@
             margin: auto;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
         }
 
         .modal-content {
             max-width: 100%;
-            max-height: calc(90vh - 40px);
+            max-height: calc(90vh - 30px);
             width: auto;
             height: auto;
             object-fit: contain;
             display: block;
-            animation: zoomIn 0.3s ease;
+            animation: zoomIn 0.3s ease forwards;
         }
 
         @keyframes zoomIn {
@@ -567,11 +567,17 @@
 
         .modal-caption {
             color: white;
-            text-align: center;
-            padding: 8px 0;
+            text-align: right;
+            padding: 6px 20px 6px 30px;
             font-size: 14px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            max-width: 70%;
+            border-top-left-radius: 8px;
+            transform: translateY(0);
+            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
 
         /* 幽灵图标动画 */
@@ -647,13 +653,19 @@
             }
 
             .modal-content {
-                max-height: calc(95vh - 40px);
+                max-height: calc(95vh - 30px);
             }
 
             .modal-close {
                 top: -35px;
                 right: -5px;
                 font-size: 28px;
+            }
+            
+            .modal-caption {
+                padding: 5px 15px 5px 25px;
+                font-size: 13px;
+                clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
             }
         }
 
@@ -673,6 +685,12 @@
 
             .card-meta {
                 font-size: 12px;
+            }
+            
+            .modal-caption {
+                max-width: 80%;
+                padding: 4px 12px 4px 20px;
+                clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
             }
         }
 
